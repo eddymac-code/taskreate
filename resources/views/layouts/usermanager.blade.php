@@ -22,17 +22,14 @@
               </li>
               @auth
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.tasks.index') }}">Tasks</a>
+                <a class="nav-link" href="{{ route('usermanager.users.index') }}">Users</a>
               </li>
               @endauth
             </ul>
             <ul class="navbar-nav">
               @auth
                 <li class="nav-item">
-                  <a href="" class="nav-link">{{ Auth::user()->name }} - (Admin)</a>
+                  <a href="" class="nav-link">{{ Auth::user()->name }} - (UserManager)</a>
                 </li>
                 <li class="nav-item">
                   <form action="{{ route('logout') }}" method="POST">

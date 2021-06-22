@@ -1,15 +1,15 @@
-@extends('layouts.admin')
+@extends('layouts.usermanager')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Admin Login') }}</div>
+                <div class="card-header">{{ __('User Manager Login') }}</div>
 
                 <div class="card-body">
                     @include('inc.messages')
-                    <form method="POST" action="{{ route('adminlogin') }}">
+                    <form method="POST" action="{{ route('usermanagerlogin') }}">
                         @csrf
 
                         <div class="form-group row">

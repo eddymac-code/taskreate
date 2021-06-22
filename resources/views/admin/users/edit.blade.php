@@ -5,18 +5,19 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Admin - New Users Registration') }}</div>
+                    <div class="card-header">{{ __('Admin - Users\' Update') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.users.store') }}">
+                        <form method="POST" action="{{ route('admin.users.update', $user->id) }}">
                             @csrf
+                            @method('PUT')
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('User\'s Name') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                    name="name" value="{{ old('name') }}" placeholder="Your Name" required autocomplete="name" autofocus>
+                                    name="name" value="{{ $user->name }}" placeholder="Your Name" required autocomplete="name" autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -48,7 +49,7 @@
 
                                 <div class="col-md-6">
                                     <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror"
-                                    name="birthday" value="{{ old('birthday') }}"  required autofocus>
+                                    name="birthday" value="{{ $user->birthday }}"  required autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -63,7 +64,7 @@
 
                                 <div class="col-md-6">
                                     <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror"
-                                    name="phone" value="{{ old('phone') }}" placeholder="Phone number" required autofocus>
+                                    name="phone" value="{{ $user->phone }}" placeholder="Phone number" required autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -78,7 +79,7 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" placeholder="Enter user's email address" required autocomplete="email">
+                                    name="email" value="{{ $user->email }}" placeholder="Enter user's email address" required autocomplete="email">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -115,7 +116,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Register User') }}
+                                        {{ __('Update User') }}
                                     </button>
                                 </div>
                             </div>

@@ -12,11 +12,11 @@
                             <h1 class="display">This is the Admin page</h1>
                             <p class="lead">Manage everything from here</p>
                             <p>            
-                                <a href="#" class="btn btn-primary">
+                                <a href="{{ route('admin.users.index') }}" class="btn btn-primary">
                                     {{ __('Manage Users') }}
                                 </a>
                             
-                                <a href="#" class="btn btn-primary">
+                                <a href="{{ route('admin.tasks.index') }}" class="btn btn-primary">
                                     {{ __('Manage Tasks') }}
                                 </a>                                
                             </p>
