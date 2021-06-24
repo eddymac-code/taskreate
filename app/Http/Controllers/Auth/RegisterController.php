@@ -36,7 +36,7 @@ class RegisterController extends Controller
         ]);
 
         // store user
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'gender' => $request->gender,
             'birthday' => $request->birthday,
@@ -44,6 +44,9 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $user->assignRole('user');
+        $user->givePermissionTo(['manage self']);
 
         // sign user in
         auth()->attempt([
@@ -53,8 +56,15 @@ class RegisterController extends Controller
 
         $user = auth()->user();
         
-        Mail::to($user->email)->send(new UserRegistered(auth()->user()));
+        try{
+            Mail::to($user->email)->send(new UserRegistered(auth()->user()));
 
+        }
+        catch(\Exception $e) {
+            // Do nothing
+        }
+        
+        
         // redirect
         return redirect()->route('tasks.index');
     }

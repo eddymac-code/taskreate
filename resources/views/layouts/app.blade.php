@@ -24,6 +24,21 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('tasks.index') }}">Tasks</a>
               </li>
+              @can('manage users')
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('admin.users.index') }}">Manage Users (Admin)</a>
+                </li>
+              @endcan
+              @can('manage tasks')
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('admin.tasks.index') }}">Manage Tasks (Admin)</a>
+                </li>
+              @endcan
+              @can('manage-users')
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('usermanager.users.index') }}">Manage Users (Usermanager)</a>
+                </li>
+              @endcan
               @endauth
             </ul>
             <ul class="navbar-nav">

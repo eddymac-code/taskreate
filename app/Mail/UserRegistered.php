@@ -31,6 +31,6 @@ class UserRegistered extends Mailable
     public function build()
     {
         return $this->markdown('emails.users.user_registered')
-            ->subject('Welcome to Taskapp!');
+            ->subject('Welcome to Taskreate!');
     }
 }
